@@ -1,0 +1,16 @@
+---
+description: MSD case rules — read CASE-RULES and the assignment Materials before writing
+globs: "Managing Software Development/**"
+alwaysApply: false
+---
+
+# Managing Software Development
+
+Follow `Managing Software Development/Agent.md`. Before writing a case:
+
+1. Read `Managing Software Development/Agent.md` and `CASE-RULES.pdf`.
+2. Read that case folder’s `Materials/`, then `Managing Software Development/Course chat/` (this case only), then the team chat at the workspace root, then the case slides.
+3. Report body is 5 pages max; title page, references and appendix do not count. Use `Managing Software Development/preamble.tex`. Do not change wording to squeeze pages.
+4. Set the title-page Submitted date from the course-chat deadline if the instructor posted one.
+5. Answer first: recommendation, one root, plan with owner/date/measure, load-bearing risk.
+6. Cite pages/exhibits or mark `[A]`. Use `p.` for every case page, including ranges — never `pp.`

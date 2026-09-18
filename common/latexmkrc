@@ -1,0 +1,26 @@
+# Shared latexmk settings for every assignment in this workspace.
+# Each assignment folder's .latexmkrc should:
+#   use File::Spec;
+#   $pdf_copy_name = 'Shareable-Name.pdf';  # optional
+#   do File::Spec->catfile('..', '..', 'common', 'latexmkrc');
+
+$pdf_mode = 1;          # pdflatex
+$out_dir  = 'build';
+$aux_dir  = 'build';
+$biber    = 'biber %O %S';
+$pdflatex = 'pdflatex -interaction=nonstopmode -file-line-error %O %S';
+
+use File::Copy;
+
+# Optional: set $pdf_copy_name in the assignment .latexmkrc before `do`.
+# Copies build/<job>.pdf to the assignment folder root for easy sharing.
+END {
+    my $job = $root_filename // 'report';
+    my $src = "build/${job}.pdf";
+    my $dest = $pdf_copy_name // "${job}.pdf";
+    if (-e $src) {
+        unless (copy($src, $dest)) {
+            warn "Could not copy $src to $dest: $!\n";
+        }
+    }
+}

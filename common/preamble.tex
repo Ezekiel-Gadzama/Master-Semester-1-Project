@@ -1,0 +1,120 @@
+% Shared formatting for course reports in this workspace.
+% Packages, bibliography and the one-page title. Size and spacing for a
+% specific course go in that course's preamble (MSD: 12 pt, 5-page body).
+% Each assignment: \documentclass[...]{article} then \input{../../common/preamble}
+
+\usepackage{tempora} % Times New Roman alike font
+
+\usepackage{geometry}
+\geometry{left=2.2cm, right=2.2cm, top=1.8cm, bottom=1.8cm, headheight=15pt, headsep=6mm, footskip=10mm}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{indentfirst}
+\parindent=1em
+\setlength{\parskip}{0pt}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[british]{babel}
+
+\usepackage[backend=biber,bibstyle=ieee,citestyle=numeric-comp,sorting=none,url=true,doi=true,isbn=false,maxnames=99,minnames=99]{biblatex}
+\DefineBibliographyStrings{english}{%
+  bibliography = {References},}
+
+\usepackage{amsmath,amsfonts}
+\usepackage{url}
+\usepackage{xurl}
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{{figs/}}
+\usepackage{array}
+\usepackage{multirow,array}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black, filecolor=black}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage{color}
+\usepackage{ragged2e}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\usepackage{enumitem}
+\usepackage{placeins}
+\usepackage[font=small, labelfont=normalfont, skip=4pt]{caption}
+
+\titleformat{\section}[hang]{\normalfont\normalsize\bfseries\RaggedRight}{\thesection}{0.8em}{}
+\titleformat{\subsection}[hang]{\normalfont\normalsize\bfseries\RaggedRight}{\thesubsection}{0.8em}{}
+\titlespacing*{\section}{0pt}{1.6ex plus 0.4ex}{0.7ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{1.2ex plus 0.3ex}{0.5ex plus 0.1ex}
+
+\setlength{\textfloatsep}{8pt plus 2pt minus 4pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+
+\newcommand\pic[1]{(Fig. \ref{#1})}
+\newcommand\tab[1]{(Tab. \ref{#1})}
+
+\captionsetup[table]{name={Table}, labelsep=period, position=top, justification=raggedright, singlelinecheck=true}
+\DeclareCaptionLabelSeparator{figSep}{.\quad}
+\captionsetup[figure]{name={Fig.}, labelsep=period, position=bottom, justification=raggedright, singlelinecheck=false}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhead[L]{\small\nouppercase{\rightmark}}
+\fancyhead[R]{\small\thepage}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+% Title-page fonts. A course preamble may renew these; the layout stays the same.
+\newcommand{\titlepagetitlefont}{\LARGE\bfseries}
+\newcommand{\titlepagesubtitlefont}{\large}
+\newcommand{\titlepagemetafont}{\normalsize}
+\newcommand{\titlepageteamfont}{\normalsize\bfseries}
+\newcommand{\titlepagetablefont}{\normalsize}
+\newcommand{\titlepagekeyfont}{\small\itshape}
+
+% One row of the who-did-what table on the title page.
+\newcommand{\member}[2]{#1 & #2 \\ \addlinespace[3pt]}
+
+% One-page title: title, subtitle, course/date, team, members+contributions, citation key.
+% Arguments: title, subtitle, team name, \member{Name}{what they did} rows, course line, date.
+% Environment body: citation-key paragraph (wording from the course Agent.md).
+\newenvironment{coursereporttitle}[6]{%
+  \pagenumbering{Alph}%
+  \begin{titlepage}
+    \centering
+    \vspace*{1.5cm}
+    {\titlepagetitlefont #1\par}
+    \vspace{0.55em}
+    {\titlepagesubtitlefont #2\par}
+    \vspace{1.1em}
+    {\titlepagemetafont #5\par}
+    \vspace{0.25em}
+    {\titlepagemetafont Submitted #6\par}
+    \vfill
+    {\titlepageteamfont Team: #3\par}
+    \vspace{0.55em}
+    {\titlepagetablefont
+    \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.30\textwidth}>{\RaggedRight\arraybackslash}p{0.58\textwidth}@{}}
+      \toprule
+      \textbf{Member} & \textbf{Contribution} \\
+      \midrule
+      #4
+      \bottomrule
+    \end{tabular}\par}
+    \vfill
+    \begin{minipage}{0.88\textwidth}
+      \centering\titlepagekeyfont\ignorespaces
+}{%
+      \par
+    \end{minipage}
+    \vspace{1.4cm}
+  \end{titlepage}%
+  \pagenumbering{arabic}%
+}

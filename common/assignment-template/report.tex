@@ -1,0 +1,25 @@
+% !TEX program = pdflatex
+% !BIB program = biber
+\documentclass[oneside,final,12pt,a4paper]{article}
+\input{../../common/preamble}
+\bibliography{ref.bib}
+
+\begin{document}
+
+\begin{coursereporttitle}
+  {Title}
+  {Subtitle}
+  {Team name}
+  {%
+    \member{Name 1}{\textit{[contribution]}}
+    \member{Name 2}{\textit{[contribution]}}
+  }
+  {Course \textperiodcentered\ Innopolis University \textperiodcentered\ Fall 2026}
+  {DATE}
+Citation key. Wording comes from the course Agent.md: how pages, exhibits, lectures and [A] are cited in this report.
+\end{coursereporttitle}
+
+\section{Introduction}
+
+\printbibliography
+\end{document}

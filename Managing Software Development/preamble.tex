@@ -1,0 +1,44 @@
+% MSD case-report format. Taken from Satera-C1-Report.docx; CASE-RULES
+% require 11-12 pt and a 5-page body (title page, references, appendix excluded).
+% Every MSD assignment: 11 pt letter, common preamble, then this file.
+
+\geometry{letterpaper, left=0.945in, right=0.945in, top=0.866in, bottom=0.866in, headheight=13pt, headsep=4.2mm, footskip=8mm}
+
+% Calibri-metric font (docx body is Calibri 11 pt).
+\usepackage[sfdefault]{carlito}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Normal: 11 pt, line 259/240, 5 pt after each paragraph, no first-line indent.
+\setstretch{1.079}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\raggedbottom
+
+% Heading 1: 13 pt bold, 10 pt before, 4 pt after.
+\titleformat{\section}[hang]{\fontsize{13}{16}\selectfont\bfseries\raggedright}{\thesection}{0.7em}{}
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+% Heading 2: 11.5 pt bold, 6 pt before, 3 pt after.
+\titleformat{\subsection}[hang]{\fontsize{11.5}{14}\selectfont\bfseries\raggedright}{\thesubsection}{0.7em}{}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
+
+% Caption style in the docx is 9 pt.
+\captionsetup{font={footnotesize}, labelfont={bf}, skip=4pt}
+
+% Word-style header: page number only.
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[R]{\fontsize{11}{13}\selectfont\thepage}
+
+% Hanging references (docx hanging indent 454 twips ~ 0.8 cm).
+\setlength{\bibhang}{0.8cm}
+\renewcommand*{\bibfont}{\fontsize{11}{13}\selectfont}
+
+% Title page: same layout as common (team, members, who did what).
+% Sizes from Satera-C1-Report.docx.
+\renewcommand{\titlepagetitlefont}{\fontsize{22}{26}\selectfont\bfseries}
+\renewcommand{\titlepagesubtitlefont}{\fontsize{13}{16}\selectfont}
+\renewcommand{\titlepagemetafont}{\fontsize{11}{14}\selectfont}
+\renewcommand{\titlepageteamfont}{\fontsize{12}{15}\selectfont\bfseries}
+\renewcommand{\titlepagetablefont}{\fontsize{11}{14}\selectfont}
+\renewcommand{\titlepagekeyfont}{\fontsize{9.5}{12}\selectfont\itshape}

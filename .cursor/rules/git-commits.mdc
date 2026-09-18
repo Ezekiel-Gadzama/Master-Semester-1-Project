@@ -1,0 +1,12 @@
+---
+description: Never list an AI agent as a git commit contributor
+alwaysApply: true
+---
+
+# Git commit messages
+
+Commit as the human authors of this repo only.
+
+- Do not add `Co-authored-by`, `Signed-off-by`, `Made-with`, or `Generated-by` trailers for Cursor, Claude, Copilot, ChatGPT, Codex, Composer, Gemini, or any other AI (`Cursor <cursoragent@cursor.com>` included).
+- After every commit, check `git log -1 --format=%B`. If an AI trailer is there, recreate a clean commit before push.
+- Keep `.githooks/commit-msg` copied to `.git/hooks/commit-msg`.

@@ -1,0 +1,9 @@
+---
+description: Requirement Engineering — read course Agent.md and assignment Materials
+globs: "Requirement Engineering/**"
+alwaysApply: false
+---
+
+# Requirement Engineering
+
+Follow `Requirement Engineering/Agent.md` and root `AGENTS.md` §3. Before writing: `Materials/`, then `Requirement Engineering/Course chat/` if present, then the team chat, then that assignment’s slides. Use the shared one-page `coursereporttitle`. Put RE-specific citation wording in this course `Agent.md`.

@@ -1,0 +1,16 @@
+---
+description: Shared workspace — AGENTS.md is canonical for every AI; include course and team chats
+alwaysApply: true
+---
+
+# Workspace
+
+Follow `AGENTS.md` at the workspace root (same file Claude and Copilot use). Course operating rules live in that course’s `Agent.md`.
+
+Before writing an assignment: materials, then `<course>/Course chat/`, then `{team} chat/` at the workspace root, then that assignment’s slides. Search chats for this assignment only. Official instructor dates beat the handout.
+
+Do not duplicate `.vscode` or `common/` inside a course folder.
+
+Never insert AI watermarks or hidden Unicode in reports. Scan pasted text and strip it.
+
+Never put an AI agent in a git commit message as a contributor (`Co-authored-by`, `Signed-off-by`, `Made-with`, `Generated-by` for Cursor/Claude/Copilot/etc.). Human authors only.

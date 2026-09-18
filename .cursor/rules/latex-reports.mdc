@@ -1,0 +1,15 @@
+---
+description: LaTeX report conventions for both courses
+globs: "**/*.{tex,bib,latexmkrc}"
+alwaysApply: false
+---
+
+# Course reports
+
+- Start from `common/assignment-template`. Input `\input{../../common/preamble}`.
+- MSD assignments also `\input{../preamble}` after the shared preamble (11 pt Letter, Calibri-metric, Word report sizes).
+- Title page is one page: title, subtitle, course/date, team, `\member{Name}{contribution}` rows, citation key. No decorative rule under the subtitle.
+- Citation-key wording comes from the course `Agent.md`, not from another course's report.
+- Assignment `.latexmkrc` only sets `$pdf_copy_name` and `do`s `../../common/latexmkrc`.
+- Put figures in `figs/`, sources in `ref.bib`. Do not add packages already in `common/preamble.tex`.
+- Never add AI watermarks or hidden Unicode. After editing or pasting, strip zero-width/bidi/BOM/tag characters. Report `.tex` stays ASCII plus LaTeX markup.
